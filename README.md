@@ -1,4 +1,3 @@
-webapi
-======
+# The TeamHaven Web API
 
-TeamHaven web API
+Please visit the wiki for more information: https://github.com/teamhaven/WebAPI/wiki
