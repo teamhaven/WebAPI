@@ -2,4 +2,6 @@
 
 # Another heading
 
-[[README.md]]
+[README](README.md)
+
+[Heading](#Heading)
