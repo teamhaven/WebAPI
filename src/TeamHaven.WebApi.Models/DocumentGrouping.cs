@@ -2,6 +2,9 @@ using System.Collections.Generic;
 
 namespace TeamHaven.WebApi.Models
 {
+	/// <summary>
+	/// A collection of documents from the Document Library.
+	/// </summary>
 	public class DocumentGrouping
 	{
 		/// <summary>
