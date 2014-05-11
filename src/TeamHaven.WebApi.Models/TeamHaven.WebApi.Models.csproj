@@ -42,6 +42,7 @@
     <Compile Include="CallSearchResult.cs" />
     <Compile Include="CallStatus.cs" />
     <Compile Include="Checkin.cs" />
+    <Compile Include="ContactInfo.cs" />
     <Compile Include="QuestionnaireManifest.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="DocumentGrouping.cs" />
@@ -55,9 +56,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Questionnaire.cs" />
     <Compile Include="SearchResults.cs" />
+    <Compile Include="ServerInfo.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="Target.cs" />
     <Compile Include="TargetSearchResult.cs" />
+    <Compile Include="Theme.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserSearchResult.cs" />
   </ItemGroup>
@@ -66,7 +69,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>set DEV=..\..\..\..\..
+    <PostBuildEvent>if not "%25TEAMCITY_VERSION%25" == "" exit 0
+set DEV=..\..\..\..\..
 set DEST=%25DEV%25\WebApi
 
 if not exist %25DEST%25\src\TeamHaven.WebApi.Models mkdir %25DEST%25\src\TeamHaven.WebApi.Models
