@@ -43,5 +43,26 @@ namespace TeamHaven.WebApi
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsAsync<Call>();
         }
+
+        public async Task<List<Answer>> GetCallAnswers(int id)
+        {
+            var response = await client.GetAsync("/calls/" + id + "/answers");
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadAsAsync<List<Answer>>();
+        }
+
+        public async Task<Questionnaire> GetCallQuestionnaire(int id)
+        {
+            var response = await client.GetAsync("/calls/" + id + "/questionnaire");
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadAsAsync<Questionnaire>();
+        }
+
+        public async Task<QuestionnaireManifest> GetCallQuestionnaireManifest(int id)
+        {
+            var response = await client.GetAsync("/calls/" + id + "/questionnaire/manifest");
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadAsAsync<QuestionnaireManifest>();
+        }
     }
 }
