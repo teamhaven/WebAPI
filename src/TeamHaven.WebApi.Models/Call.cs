@@ -46,9 +46,26 @@ namespace TeamHaven.WebApi.Models
 		public DateTime? PlannedStart { get; set; }
 
 		/// <summary>
+		/// The estimate duration of the visit in minutes.
+		/// </summary>
+		public int? PlannedDuration { get; set; } 
+
+		/// <summary>
 		/// The Call's status
 		/// </summary>
 		public CallStatus Status { get; set; }
+
+		/// <summary>
+		/// The date (and optionally time) when the visit was made.
+		/// This may be null if the questionnaire does not have the requisite question bindings.
+		/// </summary>
+		public DateTime? ActualStart { get; set; }
+
+		/// <summary>
+		/// The visit duration in minutes.
+		/// This may be null if the questionnaire does not have the requisite question bindings.
+		/// </summary>
+		public int? ActualDuration { get; set; }
 
 		/// <summary>
 		/// A dictionary of the Attribute Values assigned to the Call.
