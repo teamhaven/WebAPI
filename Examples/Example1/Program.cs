@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 
-using TeamHaven.WebApi;
+using TeamHaven.WebApi.Proxy;
 using TeamHaven.WebApi.Models;
 
 namespace Example1

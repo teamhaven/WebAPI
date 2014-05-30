@@ -7,7 +7,7 @@ using System.Net.Http;
 
 using TeamHaven.WebApi.Models;
 
-namespace TeamHaven.WebApi
+namespace TeamHaven.WebApi.Proxy
 {
     /// <summary>
     /// An example of how to build a proxy that wraps the TeamHaven Web API so that you can use "real" objects
@@ -39,30 +39,37 @@ namespace TeamHaven.WebApi
 
         public async Task<Call> GetCall(int id)
         {
-            var response = await client.GetAsync("/calls/" + id);
+            var response = await client.GetAsync("/api/calls/" + id);
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsAsync<Call>();
         }
 
         public async Task<List<Answer>> GetCallAnswers(int id)
         {
-            var response = await client.GetAsync("/calls/" + id + "/answers");
+            var response = await client.GetAsync("/api/calls/" + id + "/answers");
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsAsync<List<Answer>>();
         }
 
         public async Task<Questionnaire> GetCallQuestionnaire(int id)
         {
-            var response = await client.GetAsync("/calls/" + id + "/questionnaire");
+            var response = await client.GetAsync("/api/calls/" + id + "/questionnaire");
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsAsync<Questionnaire>();
         }
 
         public async Task<QuestionnaireManifest> GetCallQuestionnaireManifest(int id)
         {
-            var response = await client.GetAsync("/calls/" + id + "/questionnaire/manifest");
+            var response = await client.GetAsync("/api/calls/" + id + "/questionnaire/manifest");
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsAsync<QuestionnaireManifest>();
+        }
+
+        public async Task<AzureQueueAccessInformation> GetEventsAuthorisation()
+        {
+            var response = await client.GetAsync("/api/events/authorisation");
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadAsAsync<AzureQueueAccessInformation>();
         }
     }
 }
