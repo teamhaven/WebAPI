@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example1", "Example1.csproj", "{0B699542-2999-4576-9E51-87FA7E23A6A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example1", "Example1\Example1.csproj", "{0B699542-2999-4576-9E51-87FA7E23A6A4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FE995636-9685-4C5F-83C8-5BFD00383538}"
 	ProjectSection(SolutionItems) = preProject
@@ -12,9 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FE9956
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamHaven.WebApi.Proxy", "..\TeamHaven.WebApi.Proxy\TeamHaven.WebApi.Proxy.csproj", "{F792687B-E1E7-46AE-9906-C7388F8C6978}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamHaven.WebApi.Proxy", "TeamHaven.WebApi.Proxy\TeamHaven.WebApi.Proxy.csproj", "{F792687B-E1E7-46AE-9906-C7388F8C6978}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example2", "..\Example2\Example2.csproj", "{28BA3727-3719-47EB-A1E0-7B0F5AF60827}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example2", "Example2\Example2.csproj", "{28BA3727-3719-47EB-A1E0-7B0F5AF60827}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
