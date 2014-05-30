@@ -37,6 +37,7 @@
     <Compile Include="ApiResult.cs" />
     <Compile Include="AttributeDefinition.cs" />
     <Compile Include="AuditLogEntry.cs" />
+    <Compile Include="AzureQueueAccessInformation.cs" />
     <Compile Include="Call.cs" />
     <Compile Include="CallDiaryEntry.cs" />
     <Compile Include="CallSearchResult.cs" />
