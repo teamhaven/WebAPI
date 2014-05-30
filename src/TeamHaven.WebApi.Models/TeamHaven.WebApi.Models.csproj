@@ -36,6 +36,7 @@
     <Compile Include="Answer.cs" />
     <Compile Include="ApiResult.cs" />
     <Compile Include="AttributeDefinition.cs" />
+    <Compile Include="AuditAction.cs" />
     <Compile Include="AuditLogEntry.cs" />
     <Compile Include="AzureQueueAccessInformation.cs" />
     <Compile Include="Call.cs" />
@@ -44,6 +45,11 @@
     <Compile Include="CallStatus.cs" />
     <Compile Include="Checkin.cs" />
     <Compile Include="ContactInfo.cs" />
+    <Compile Include="IntegrationEvent.cs" />
+    <Compile Include="IntegrationEventType.cs" />
+    <Compile Include="ObjectIdentifier.cs" />
+    <Compile Include="ObjectType.cs" />
+    <Compile Include="PartialIdentity.cs" />
     <Compile Include="QuestionnaireManifest.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="DocumentGrouping.cs" />
