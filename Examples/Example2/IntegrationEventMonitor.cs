@@ -54,8 +54,17 @@ public class IntegrationEventMonitor
             // If we don't have valid queue access information then get some
             if (accessInfo == null || DateTime.UtcNow.AddHours(-1) > accessInfo.Expires)
             {
-                accessInfo = GetQueueAccessInformation();
-                queue = null;
+				try
+				{
+					accessInfo = GetQueueAccessInformation();
+					queue = null;
+				}
+				catch (AggregateException ex)
+				{
+					// If we have an error handler, then delegate to it
+					if (OnError != null) OnError(ex.InnerException, null);
+					return; // Abort
+				}
             }
 
             // Get a reference to the Azure queue
