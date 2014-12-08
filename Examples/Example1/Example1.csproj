@@ -54,9 +54,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TeamHaven.WebApi.Proxy\TeamHaven.WebApi.Proxy.csproj">
+    <ProjectReference Include="..\TeamHaven.WebApi.Proxy\TeamHaven.WebApi.Client.csproj">
       <Project>{f792687b-e1e7-46ae-9906-c7388f8c6978}</Project>
-      <Name>TeamHaven.WebApi.Proxy</Name>
+      <Name>TeamHaven.WebApi.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -49,9 +49,8 @@
     <Reference Include="Microsoft.WindowsAzure.Storage">
       <HintPath>..\Example1\packages\WindowsAzure.Storage.4.0.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Example1\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -81,9 +80,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TeamHaven.WebApi.Proxy\TeamHaven.WebApi.Proxy.csproj">
+    <ProjectReference Include="..\TeamHaven.WebApi.Proxy\TeamHaven.WebApi.Client.csproj">
       <Project>{f792687b-e1e7-46ae-9906-c7388f8c6978}</Project>
-      <Name>TeamHaven.WebApi.Proxy</Name>
+      <Name>TeamHaven.WebApi.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
