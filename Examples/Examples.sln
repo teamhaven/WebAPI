@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamHaven.WebApi.Client", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example2", "Example2\Example2.csproj", "{28BA3727-3719-47EB-A1E0-7B0F5AF60827}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example3", "Example3\Example3.csproj", "{941C14B0-3D0B-4767-BFF7-516CC808F06A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,10 @@ Global
 		{28BA3727-3719-47EB-A1E0-7B0F5AF60827}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28BA3727-3719-47EB-A1E0-7B0F5AF60827}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28BA3727-3719-47EB-A1E0-7B0F5AF60827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{941C14B0-3D0B-4767-BFF7-516CC808F06A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{941C14B0-3D0B-4767-BFF7-516CC808F06A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{941C14B0-3D0B-4767-BFF7-516CC808F06A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{941C14B0-3D0B-4767-BFF7-516CC808F06A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
