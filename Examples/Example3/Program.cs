@@ -59,7 +59,12 @@ namespace Example3
 				OnError = (ex, msg) =>
 				{
 					Console.WriteLine(ex.Message);
-					return true;
+
+					// The message causing the error is not deleted so that you have a chance to investigate and
+					// process it correctly. Make sure you never delete mesasges that you have not processed!
+					// Consider moving failures into an Azure Queue of your own, or to some other persistent medium
+					// so that you can clear them out of the main processing queue.
+					return false;
 				}
 			};
 
