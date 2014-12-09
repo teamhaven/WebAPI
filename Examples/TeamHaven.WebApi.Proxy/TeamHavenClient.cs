@@ -29,9 +29,9 @@ namespace TeamHaven.WebApi.Client
 		/// We recommend that you always connect to the HTTPS version of the Web API, but for debugging purposes,
 		/// it can be convienient to use the HTTP version so that you can easily examine requests using a network sniffer.
 		/// </summary>
-		public static HttpClient CreateHttpClient(string appName, string appEmail, string username, string password, string account = null, bool useHttpForEasyDebugging = false)
+		public static HttpClient CreateHttpClient(string appName, string appEmail, string username, string password, string account = null, bool useHttpForEasyDebugging = false, string serverUrl = "www.teamhaven.com")
 		{
-			var server = new Uri(useHttpForEasyDebugging ? "http://www.teamhaven.com" : "https://www.teamhaven.com");
+			var server = new Uri(String.Format("{0}://{1}", useHttpForEasyDebugging ? "http" : "https", serverUrl));
 			var client = new HttpClient { BaseAddress = server };
 
 			// Identify the application to TeamHaven
@@ -96,5 +96,19 @@ namespace TeamHaven.WebApi.Client
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsAsync<AzureQueueAccessInformation>();
         }
+
+		public async Task<Target> GetTarget(int projectID, int targetID)
+		{
+			var response = await client.GetAsync("/api/projects/" + projectID + "/targets/" + targetID);
+			response.EnsureSuccessStatusCode();
+			return await response.Content.ReadAsAsync<Target>();
+		}
+
+		public async Task<byte[]> GetPicture(Guid guid)
+		{
+			var response = await client.GetAsync("/api/pictures/" + guid);
+			response.EnsureSuccessStatusCode();
+			return await response.Content.ReadAsByteArrayAsync();
+		}
     }
 }
