@@ -43,6 +43,21 @@ namespace TeamHaven.WebApi.Models
 		public bool IsVariable { get; set; }
 
 		/// <summary>
+		/// Flag indicating whether this attribute is a method of contacting someone (telephone, email etc)
+		/// </summary>
+		public bool IsContactMethod { get; set; }
+
+		/// <summary>
+		/// Flag indicating whether this attribute is part of an address.
+		/// </summary>
+		public bool IsAddressPart { get; set; }
+
+		/// <summary>
+		/// Flag indicating whether this attribute is part of somebody's name.
+		/// </summary>
+		public bool IsFullNamePart { get; set; }
+
+		/// <summary>
 		/// Flag indicating whether this attribute must have a value.
 		/// </summary>
 		public bool Required { get; set; }

@@ -19,6 +19,11 @@ namespace TeamHaven.WebApi.Models
 		public string Name { get; set; }
 
 		/// <summary>
+		/// The domain name used by this server.
+		/// </summary>
+		public string Domain { get; set; }
+
+		/// <summary>
 		/// The display theme used by this server.
 		/// </summary>
 		public Theme Theme { get; set; }

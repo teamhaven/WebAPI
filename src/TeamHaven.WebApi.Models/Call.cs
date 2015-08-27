@@ -46,9 +46,22 @@ namespace TeamHaven.WebApi.Models
 		public DateTime? PlannedStart { get; set; }
 
 		/// <summary>
-		/// The estimate duration of the visit in minutes.
+		/// The estimated duration of the visit in minutes.
 		/// </summary>
-		public int? PlannedDuration { get; set; } 
+		public int? PlannedDuration { get; set; }
+
+		/// <summary>
+		/// The estimated travel time & distance required to reach the Call. May
+		/// be NULL if the Call has no planned travel information.
+		/// </summary>
+		public JourneyLeg PlannedTravel { get; set; }
+
+		/// <summary>
+		/// The estimated travel time & distance requried to return home after
+		/// the Call has been completed. Only present if this is the last Call
+		/// planned for a day by the Call Planner, NULL otherwise.)
+		/// </summary>
+		public JourneyLeg PlannedHomeTravel { get; set; }
 
 		/// <summary>
 		/// The Call's status

@@ -6,7 +6,7 @@ using System.Text;
 namespace TeamHaven.WebApi.Models
 {
 	/// <summary>
-	/// The display theme for an Account
+	/// The display theme for an Account or Project
 	/// </summary>
 	public class Theme
 	{

@@ -11,7 +11,7 @@ namespace TeamHaven.WebApi.Models
 		/// <summary>
 		/// The Target's unique ID
 		/// </summary>
-		public int TargetID { get; set; }
+		public int? TargetID { get; set; }
 
 		/// <summary>
 		/// The ID of the Project that this Target belongs to.
@@ -43,5 +43,10 @@ namespace TeamHaven.WebApi.Models
 		/// (Our agreement with Google maps prevents us from making LatLng information acquired by Geocoding available to you).
 		/// </summary>
 		public LatLng LatLng { get; set; }
+
+		/// <summary>
+		/// Indicates that the Target has been deleted.
+		/// </summary>
+		public bool? Deleted { get; set; }
 	}
 }

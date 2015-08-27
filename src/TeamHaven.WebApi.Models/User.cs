@@ -8,7 +8,7 @@ namespace TeamHaven.WebApi.Models
 		/// <summary>
 		/// The User's unique ID
 		/// </summary>
-		public int UserID { get; set; }
+		public int? UserID { get; set; }
 
 		/// <summary>
 		/// The User's unique Username
@@ -24,6 +24,11 @@ namespace TeamHaven.WebApi.Models
 		/// The User's display name / full name.
 		/// </summary>
 		public string DisplayName { get; set; }
+
+		/// <summary>
+		/// The User's Role
+		/// </summary>
+		public Role? Role { get; set; }
 
 		/// <summary>
 		/// A hash for use in displaying Gravatars (http://gravatar.com)
@@ -54,7 +59,13 @@ namespace TeamHaven.WebApi.Models
 		/// The latitude and longitude of the User, if known and if available to you.
 		/// (Our agreement with Google maps prevents us from making LatLng information acquired by Geocoding available to you).
 		/// </summary>
-		public LatLng Position { get; set; }
+		[Obsolete()]
+		public LatLng LatLng { get; set; }
+
+		/// <summary>
+		/// Information about the User's position, including Lat/Lng coordinates
+		/// </summary>
+		public Position Position { get; set; }
 
 		/// <summary>
 		/// How far away the user is from the point specified during a User Search.

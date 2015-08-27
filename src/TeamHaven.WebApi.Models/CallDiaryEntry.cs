@@ -8,7 +8,9 @@ namespace TeamHaven.WebApi.Models
 		public int CallID { get; set; }
 		public DateTime PlannedStart { get; set; }
 		public int? PlannedDuration { get; set; }
-		public int? TravelTime { get; set; }
-		public double? TravelDistance { get; set; }
+		public int? PlannedTravelTime { get; set; }
+		public double? PlannedTravelDistance { get; set; }
+		public int? PlannedHomeTravelTime { get; set; }
+		public double? PlannedHomeTravelDistance { get; set; }
 	}
 }

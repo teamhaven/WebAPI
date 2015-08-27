@@ -38,7 +38,7 @@ namespace TeamHaven.WebApi.Models
 		/// <summary>
 		/// The type of checkin.
 		/// </summary>
-		public CheckinType Type { get; set; }
+		public CheckinType? Type { get; set; }
 
 		/// <summary>
 		/// A timestamp to associate with the checkin. Must be in UTC.
