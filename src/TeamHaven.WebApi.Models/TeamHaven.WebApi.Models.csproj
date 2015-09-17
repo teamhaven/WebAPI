@@ -94,6 +94,7 @@
     <Compile Include="UserSearchResult.cs" />
     <Compile Include="UserSettings.cs" />
     <Compile Include="VacancySummary.cs" />
+    <Compile Include="WorkHistory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

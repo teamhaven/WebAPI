@@ -89,5 +89,10 @@ namespace TeamHaven.WebApi.Models
 		/// A copy of the Project's Call Attribute Schema, if requested.
 		/// </summary>
 		public List<AttributeDefinition> Schema { get; set; }
+
+		/// <summary>
+		/// The position captured when the Collector completed the Call, if known.
+		/// </summary>
+		public Position Position { get; set; }
 	}
 }
