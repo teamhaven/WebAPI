@@ -24,7 +24,7 @@ public class IntegrationEventMonitor
     /// This delegate is called whenever a new IntegrationEvent is received. Once it has finished processing
     /// the event, it should return true to have the event deleted from the queue.
     /// </summary>
-    public Func<IntegrationEvent, bool> ProcessEvent { get; set; }
+    public Action<IntegrationEvent> ProcessEvent { get; set; }
 
     /// <summary>
     /// This delegate is called to determine whether the monitoring loop should continue.
@@ -108,12 +108,15 @@ public class IntegrationEventMonitor
             var e = JsonConvert.DeserializeObject<IntegrationEvent>(message.AsString);
 
             // If we have a ProcessEvent delegate, then process the message
-            return ProcessEvent != null ? ProcessEvent(e) : false;
+			if (ProcessEvent != null) ProcessEvent(e);
+			return true;
         }
         catch (Exception ex)
         {
             // If we have an error handler, then delegate to it
             if (OnError != null) return OnError(ex, message);
+
+			// Otherwise re-throw the exception
             throw;
         }
     }

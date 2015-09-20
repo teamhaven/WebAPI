@@ -1,6 +1,7 @@
 ﻿using System;
 
 using TeamHaven.WebApi.Client;
+using TeamHaven.WebApi.Models;
 
 namespace Example2
 {
@@ -19,25 +20,17 @@ namespace Example2
 
 		static void Main(string[] args)
 		{
-			var client = TeamHavenClient.CreateHttpClient(ApplicationName, ApplicationEmail, Username, Password, Account, useHttpForEasyDebugging: true);
+			var client = TeamHavenClient.CreateHttpClient(ApplicationName, ApplicationEmail, Username, Password, Account);
 			var proxy = new TeamHavenClient(client);
 
 			var monitor = new IntegrationEventMonitor
 			{
 				// Use the TeamHaven WebAPI to retrieve the information needed to access the Windows Azure queue
-				GetQueueAccessInformation = () =>
-					{
-						var task = proxy.GetEventsAuthorisation();
-						return task.Result;
-					},
+				GetQueueAccessInformation = () => proxy.GetEventsAuthorisation().Result,
 
 				// This code processes a single IntegrationEvent and should return TRUE if the event
 				// was successfully processed.
-				ProcessEvent = (e) =>
-					{
-						Console.WriteLine("{0} {1} {2}", e.Object.ObjectType, e.Object.ObjectID, e.EventType);
-						return true;
-					},
+				ProcessEvent = (e) => ProcessIntegrationEvent(e),
 
 				// This code should return TRUE until you want the monitoring loop to stop
 				ContinueMonitoring = () => true,
@@ -45,14 +38,22 @@ namespace Example2
 				// This code handles errors thrown by the ProcessEvent delegate. It should return TRUE if
 				// the failed message should be deleted from the queue.
 				OnError = (ex, msg) =>
-					{
-						Console.WriteLine(ex.Message);
-						return true;
-					}
+				{
+					Console.WriteLine(ex.Message);
+					return true;
+				}
 			};
 
 			// Start the monitoring loop
 			monitor.MonitorQueue();
+		}
+
+		/// <summary>
+		/// This is where you would write your own code to handle the Integration Events
+		/// </summary>
+		static void ProcessIntegrationEvent(IntegrationEvent e)
+		{
+			Console.WriteLine("A {0} with an ID of {1} has been {2}", e.Object.ObjectType, e.Object.ObjectID, e.EventType);
 		}
 	}
 }
