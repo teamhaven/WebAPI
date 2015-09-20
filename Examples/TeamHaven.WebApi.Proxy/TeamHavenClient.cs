@@ -14,9 +14,9 @@ namespace TeamHaven.WebApi.Client
     /// </summary>
     public class TeamHavenClient
     {
-        HttpClient client;
+        ITeamHavenHttpClient client;
 
-        public TeamHavenClient(HttpClient client)
+        public TeamHavenClient(ITeamHavenHttpClient client)
         {
             this.client = client;
         }
@@ -29,85 +29,101 @@ namespace TeamHaven.WebApi.Client
 		/// We recommend that you always connect to the HTTPS version of the Web API, but for debugging purposes,
 		/// it can be convienient to use the HTTP version so that you can easily examine requests using a network sniffer.
 		/// </summary>
-		public static HttpClient CreateHttpClient(string appName, string appEmail, string username, string password, string account = null, bool useHttpForEasyDebugging = false, string serverUrl = "www.teamhaven.com")
+		public static ITeamHavenHttpClient CreateHttpClient(string appName, string appEmail, string username, string password, string account = null, bool useHttpForEasyDebugging = false, string serverUrl = "www.teamhaven.com")
 		{
-			var server = new Uri(String.Format("{0}://{1}", useHttpForEasyDebugging ? "http" : "https", serverUrl));
-			var client = new HttpClient { BaseAddress = server };
+			var serverUri = new Uri(String.Format("{0}://{1}", useHttpForEasyDebugging ? "http" : "https", serverUrl));
+			var wrappedClient = new HttpClient { BaseAddress = serverUri };
 
 			// Identify the application to TeamHaven
-			client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", String.Format("app={0}; email={1}", appName, appEmail));
+			wrappedClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", String.Format("app={0}; email={1}", appName, appEmail));
 
 			// Provide the credentials to authorise requests with
 			var credentials = String.Format(account == null ? "{0}:{1}" : "{0}/{2}:{1}", username, password, account).ToBase64();
-			client.DefaultRequestHeaders.Add("Authorization", "Basic " + credentials);
+			wrappedClient.DefaultRequestHeaders.Add("Authorization", "Basic " + credentials);
 
 			// Request JSON encoded responses using the most recent version of the API
-			client.DefaultRequestHeaders.Add("Accept", "application/vnd.teamhaven+json");
+			wrappedClient.DefaultRequestHeaders.Add("Accept", "application/vnd.teamhaven+json");
 
-			return client;
+			return new TeamHavenHttpClient(wrappedClient);
+		}
+
+		/// <summary>
+		/// Send a GET request to the specified URI as an asynchonous operation.
+		/// If the server responds with a 429 - TOO MANY REQUESTS, the task will
+		/// sleep for the server-specified retry period and then try again. The
+		/// task will only complete when a response other than a 429 has been
+		/// received.
+		/// </summary>
+		public async Task<HttpResponseMessage> GetAsync(string requestUri)
+		{
+			while (true) // TODO: Waiting indefinitely is a bit naive
+			{
+				var response = await client.GetAsync(requestUri);
+
+				if ((int)response.StatusCode != 429)
+				{
+					response.EnsureSuccessStatusCode();
+					return response;
+				}
+
+				var retryAfter = response.Headers.RetryAfter.Delta ?? TimeSpan.FromSeconds(5);
+				Console.WriteLine("Request limit exceeded, sleeping for {0:n0} minutes...", retryAfter.TotalMinutes);
+				await Task.Delay(retryAfter);
+			}
 		}
 
         public async Task<ServerInfo> GetServerInfo()
         {
-            var response = await client.GetAsync("/api/server");
-            response.EnsureSuccessStatusCode();
+            var response = await GetAsync("/api/server");
             return await response.Content.ReadAsAsync<ServerInfo>();
         }
 
         public async Task<User> GetUser(int? id = null)
         {
             var url = id == null ? "/api/user" : "/api/users/" + id;
-            var response = await client.GetAsync(url);
-            response.EnsureSuccessStatusCode();
+            var response = await GetAsync(url);
             return await response.Content.ReadAsAsync<User>();
         }
 
         public async Task<Call> GetCall(int id)
         {
-            var response = await client.GetAsync("/api/calls/" + id);
-            response.EnsureSuccessStatusCode();
+            var response = await GetAsync("/api/calls/" + id);
             return await response.Content.ReadAsAsync<Call>();
         }
 
         public async Task<List<Answer>> GetCallAnswers(int id)
         {
-            var response = await client.GetAsync("/api/calls/" + id + "/answers");
-            response.EnsureSuccessStatusCode();
+            var response = await GetAsync("/api/calls/" + id + "/answers");
             return await response.Content.ReadAsAsync<List<Answer>>();
         }
 
         public async Task<Questionnaire> GetCallQuestionnaire(int id)
         {
-            var response = await client.GetAsync("/api/calls/" + id + "/questionnaire");
-            response.EnsureSuccessStatusCode();
+            var response = await GetAsync("/api/calls/" + id + "/questionnaire");
             return await response.Content.ReadAsAsync<Questionnaire>();
         }
 
         public async Task<QuestionnaireManifest> GetCallQuestionnaireManifest(int id)
         {
-            var response = await client.GetAsync("/api/calls/" + id + "/questionnaire/manifest");
-            response.EnsureSuccessStatusCode();
+            var response = await GetAsync("/api/calls/" + id + "/questionnaire/manifest");
             return await response.Content.ReadAsAsync<QuestionnaireManifest>();
         }
 
         public async Task<AzureQueueAccessInformation> GetEventsAuthorisation()
         {
-            var response = await client.GetAsync("/api/events/authorisation");
-            response.EnsureSuccessStatusCode();
+            var response = await GetAsync("/api/events/authorisation");
             return await response.Content.ReadAsAsync<AzureQueueAccessInformation>();
         }
 
 		public async Task<Target> GetTarget(int projectID, int targetID)
 		{
-			var response = await client.GetAsync("/api/projects/" + projectID + "/targets/" + targetID);
-			response.EnsureSuccessStatusCode();
+			var response = await GetAsync("/api/projects/" + projectID + "/targets/" + targetID);
 			return await response.Content.ReadAsAsync<Target>();
 		}
 
 		public async Task<byte[]> GetPicture(Guid guid)
 		{
-			var response = await client.GetAsync("/api/pictures/" + guid);
-			response.EnsureSuccessStatusCode();
+			var response = await GetAsync("/api/pictures/" + guid);
 			return await response.Content.ReadAsByteArrayAsync();
 		}
     }
