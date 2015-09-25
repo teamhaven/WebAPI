@@ -66,7 +66,7 @@ namespace TeamHaven.WebApi.Client
 					return response;
 				}
 
-				var retryAfter = response.Headers.RetryAfter.Delta ?? TimeSpan.FromSeconds(5);
+				var retryAfter = response.Headers.RetryAfter.Delta ?? TimeSpan.FromMinutes(5);
 				Console.WriteLine("Request limit exceeded, sleeping for {0:n0} minutes...", retryAfter.TotalMinutes);
 				await Task.Delay(retryAfter);
 			}
