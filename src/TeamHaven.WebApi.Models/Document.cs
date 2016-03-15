@@ -52,5 +52,10 @@ namespace TeamHaven.WebApi.Models
 		/// Who can view the Document.
 		/// </summary>
 		public DocumentPermissions Permissions { get; set; }
+
+		/// <summary>
+		/// The document type
+		/// </summary>
+		public DocumentType DocumentType { get; set; }
 	}
 }

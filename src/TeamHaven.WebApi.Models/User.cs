@@ -71,5 +71,35 @@ namespace TeamHaven.WebApi.Models
 		/// How far away the user is from the point specified during a User Search.
 		/// </summary>
 		public double? Distance { get; set; }
+
+		/// <summary>
+		/// The User's rating, if any. Should be 1-5 or null if not rated.
+		/// </summary>
+		public int? Rating { get; set; }
+
+		/// <summary>
+		/// Which Projects the user can access, if their role is governed by a Project List.
+		/// </summary>
+		public List<int> ProjectList { get; set; }
+
+		/// <summary>
+		/// TRUE if the user is not a Collector but can be assigned to Calls.
+		/// </summary>
+		public bool? IsCollector { get; set; }
+
+		/// <summary>
+		/// TRUE if the user can not make any changes to TeamHaven.
+		/// </summary>
+		public bool? IsReadOnly { get; set; }
+
+		/// <summary>
+		/// TRUE if the user can access "advanced" functions
+		/// </summary>
+		public bool? IsAdvanced { get; set; }
+
+		/// <summary>
+		/// The Attribute Locks imposed on this User.
+		/// </summary>
+		public string AttributeLocks { get; set; }
 	}
 }

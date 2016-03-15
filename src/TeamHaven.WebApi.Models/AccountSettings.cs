@@ -35,5 +35,11 @@ namespace TeamHaven.WebApi.Models
 		/// able to change account settings.
 		/// </summary>
 		public int? PrimaryAccountHolderUserID { get; set; }
+
+		/// <summary>
+		/// The User Display Name Template. If null then the Display Name
+		/// must be specified when a user is created.
+		/// </summary>
+		public string UserDisplayNameTemplate { get; set; }
 	}
 }

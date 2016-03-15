@@ -46,6 +46,9 @@
     <Compile Include="AuditAction.cs" />
     <Compile Include="AuditLogEntry.cs" />
     <Compile Include="AzureQueueAccessInformation.cs" />
+    <Compile Include="CallActivationOptions.cs" />
+    <Compile Include="DocumentType.cs" />
+    <Compile Include="ExportFormat.cs" />
     <Compile Include="GeocodeResetOptions.cs" />
     <Compile Include="PasswordChangeRequest.cs" />
     <Compile Include="Call.cs" />
@@ -94,6 +97,7 @@
     <Compile Include="UserSearchResult.cs" />
     <Compile Include="UserSettings.cs" />
     <Compile Include="VacancySummary.cs" />
+    <Compile Include="WorkHistory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
