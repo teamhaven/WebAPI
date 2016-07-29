@@ -27,7 +27,7 @@ namespace Example3
 			var answers = await api.GetCallAnswers(callID);
 
 			var call = await api.GetCall(callID);
-			var target = await api.GetTarget(call.ProjectID, call.TargetID);
+			var target = await api.GetTarget(call.ProjectID.Value, call.TargetID.Value);
 
 			// Identify the Picture Answers by the fact they will have a non-null Picture property
 			var pictureAnswers = from a in answers where a.Picture != null select a;

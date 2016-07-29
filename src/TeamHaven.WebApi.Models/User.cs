@@ -56,13 +56,6 @@ namespace TeamHaven.WebApi.Models
 		public bool? Deleted { get; set; }
 
 		/// <summary>
-		/// The latitude and longitude of the User, if known and if available to you.
-		/// (Our agreement with Google maps prevents us from making LatLng information acquired by Geocoding available to you).
-		/// </summary>
-		[Obsolete()]
-		public LatLng LatLng { get; set; }
-
-		/// <summary>
 		/// Information about the User's position, including Lat/Lng coordinates
 		/// </summary>
 		public Position Position { get; set; }

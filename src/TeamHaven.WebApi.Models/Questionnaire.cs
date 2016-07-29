@@ -30,7 +30,6 @@ namespace TeamHaven.WebApi.Models
 	{
 		Survey = 1,
 		Grid = 2,
-		Quiz = 3,
 		AssetAudit = 4
 	}
 
