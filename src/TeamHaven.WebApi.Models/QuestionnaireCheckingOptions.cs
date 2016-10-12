@@ -4,8 +4,8 @@ using System.Linq;
 
 namespace TeamHaven.WebApi.Models
 {
-	public class CallActivationOptions
+	public class QuestionnaireCheckingOptions
 	{
-		public int? ProjectID { get; set; }
+		public int? QuestionnaireID { get; set; }
 	}
 }

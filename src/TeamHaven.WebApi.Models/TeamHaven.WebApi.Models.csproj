@@ -50,7 +50,9 @@
     <Compile Include="DocumentType.cs" />
     <Compile Include="ExportFormat.cs" />
     <Compile Include="GeocodeResetOptions.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="ItemList.cs" />
+    <Compile Include="ItemListStatus.cs" />
     <Compile Include="PasswordChangeRequest.cs" />
     <Compile Include="Call.cs" />
     <Compile Include="CallDiaryEntry.cs" />
@@ -69,6 +71,8 @@
     <Compile Include="PayRates.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="PositionSource.cs" />
+    <Compile Include="QuestionnaireActivationOptions.cs" />
+    <Compile Include="QuestionnaireCheckingOptions.cs" />
     <Compile Include="QuestionnaireInfo.cs" />
     <Compile Include="QuestionnaireManifest.cs" />
     <Compile Include="Document.cs" />

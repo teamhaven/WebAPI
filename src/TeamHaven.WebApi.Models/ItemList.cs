@@ -19,5 +19,16 @@ namespace TeamHaven.WebApi.Models
 		/// The Item List's version number
 		/// </summary>
 		public int? Version { get; set; }
+
+		/// <summary>
+		/// The Project Target Attribute ID which defines the categories that this
+		/// Item List varies by, or NULL if not a variable Item List
+		/// </summary>
+		public int? VariesByAttributeID { get; set; }
+
+		/// <summary>
+		/// Indicates the Item Lists's current state
+		/// </summary>
+		public ItemListStatus Status { get; set; }
 	}
 }
