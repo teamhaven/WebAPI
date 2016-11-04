@@ -30,5 +30,10 @@ namespace TeamHaven.WebApi.Models
 		/// Indicates the Item Lists's current state
 		/// </summary>
 		public ItemListStatus Status { get; set; }
+
+		/// <summary>
+		/// The ID of version 1 of this Item List
+		/// </summary>
+		public int? RootItemListID { get; set; }
 	}
 }
