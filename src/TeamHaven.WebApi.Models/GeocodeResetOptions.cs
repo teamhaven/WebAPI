@@ -10,6 +10,7 @@ namespace TeamHaven.WebApi.Models
 		public bool? ResetFailed { get; set; }
 		public bool? ResetApproximate { get; set; }
 		public bool? ResetAccurate { get; set; }
+		public bool? ResetNoPosition { get; set; }
 
 		public int? ProjectID { get; set; }
 	}

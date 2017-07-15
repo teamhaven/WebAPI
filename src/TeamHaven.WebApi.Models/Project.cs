@@ -95,6 +95,12 @@ namespace TeamHaven.WebApi.Models
 		}
 
 		/// <summary>
+		/// If TRUE then the device's Location Services must be turned on in order to check-in.
+		/// (It might not be able to give you a location, but at least it's trying)
+		/// </summary>
+		public bool CheckinsRequireLocationServices { get; set; }
+
+		/// <summary>
 		/// If TRUE then users can still check-in even when their device
 		/// is not reporting an accurate location.
 		/// </summary>
