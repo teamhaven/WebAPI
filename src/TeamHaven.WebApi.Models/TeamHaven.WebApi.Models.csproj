@@ -48,6 +48,7 @@
     <Compile Include="AzureQueueAccessInformation.cs" />
     <Compile Include="CallActivationOptions.cs" />
     <Compile Include="DocumentType.cs" />
+    <Compile Include="DistanceUnit.cs" />
     <Compile Include="ExportFormat.cs" />
     <Compile Include="GeocodeResetOptions.cs" />
     <Compile Include="Item.cs" />

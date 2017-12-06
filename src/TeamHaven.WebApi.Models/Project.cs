@@ -74,6 +74,11 @@ namespace TeamHaven.WebApi.Models
 		public bool RetainCompletedCalls { get; set; }
 
 		/// <summary>
+		/// If TRUE then access to the device's photo library will not be permitted when answering picture questions
+		/// </summary>
+		public bool PreventPhotoLibraryAccess { get; set; }
+
+		/// <summary>
 		/// If Project Target does not specify a Country, then this is used while Geocoding
 		/// </summary>
 		public string DefaultCountry { get; set; }

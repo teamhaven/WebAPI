@@ -36,5 +36,17 @@ namespace TeamHaven.WebApi.Models
 		/// UTC timestamp for when the update occurred
 		/// </summary>
 		public DateTimeOffset Timestamp { get; set; }
+
+		/// <summary>
+		/// The TeamHaven event that caused this integration event
+		/// to be raised (if any)
+		/// </summary>
+		public TeamHavenEvent TriggeredBy { get; set; }
+	}
+
+	public class TeamHavenEvent
+	{
+		public string Name { get; set; }
+		public dynamic Data { get; set; }
 	}
 }
