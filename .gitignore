@@ -157,3 +157,5 @@ $RECYCLE.BIN/
 
 # We use automatic NuGet package restore
 packages/
+
+.vs/
