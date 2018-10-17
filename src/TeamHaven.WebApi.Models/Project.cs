@@ -141,6 +141,18 @@ namespace TeamHaven.WebApi.Models
 		/// </summary>
 		public bool EnforceApproximateDistanceLimit { get; set; }
 
+		/// <summary>
+		/// If TRUE, the check-in and check-out times are verified using an internet
+		/// time server to ensure device times are correct. If device times are
+		/// incorrect, the verified time is used.
+		/// </summary>
+		public bool EnforceTimeVerification { get; set; }
+
+		/// <summary>
+		/// If TRUE, synchronisation will take place on save.
+		/// </summary>
+		public bool SyncOnSave { get; set; }
+
 		public bool SelfAssignment { get; set; }
 
 		public int? SelfAssignmentMargin { get; set; }

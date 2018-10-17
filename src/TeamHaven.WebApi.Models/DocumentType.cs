@@ -13,5 +13,6 @@ namespace TeamHaven.WebApi.Models
 		ColumnExport = 5,
 		PivotExport = 6,
 		ItemDataExport = 7,
+		Dashboard = 8
 	}
 }

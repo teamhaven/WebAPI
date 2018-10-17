@@ -57,5 +57,10 @@ namespace TeamHaven.WebApi.Models
 		/// The document type
 		/// </summary>
 		public DocumentType DocumentType { get; set; }
+
+		/// <summary>
+		/// The document's Media Type
+		/// </summary>
+		public string MediaType { get; set; }
 	}
 }

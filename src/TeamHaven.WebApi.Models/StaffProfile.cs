@@ -9,7 +9,7 @@ namespace TeamHaven.WebApi.Models
 		/// The maximum distance a Collector is able to travel in
 		/// order to be considered suitable.
 		/// </summary>
-		public float? MaximumDistance { get; set; }
+		public double? MaximumDistance { get; set; }
 
 		/// <summary>
 		/// The minimum Rating a Collector must have in order
