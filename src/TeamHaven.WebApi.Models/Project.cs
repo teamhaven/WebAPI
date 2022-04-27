@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace TeamHaven.WebApi.Models
 {
@@ -52,6 +51,17 @@ namespace TeamHaven.WebApi.Models
 		/// assigned as the Default User.
 		/// </summary>
 		public bool CollectorCanCreateCalls { get; set; }
+
+		/// <summary>
+		/// If TRUE then Collectors can create new Calls using the website,
+		/// if CollectorCanCreateCalls is also TRUE.
+		/// </summary>
+		public bool CollectorCanCreateCallsOnWeb { get; set; }
+
+		/// <summary>
+		/// If TRUE then Collectors can complete Calls using the website.
+		/// </summary>
+		public bool CollectorCanCompleteCallsOnWeb { get; set; }
 
 		/// <summary>
 		/// The lowest Role allowed to change the Questionnaire design
@@ -153,8 +163,17 @@ namespace TeamHaven.WebApi.Models
 		/// </summary>
 		public bool SyncOnSave { get; set; }
 
+		/// <summary>
+		/// If TRUE, users will be notified of synchronisations.
+		/// </summary>
+		public bool SyncNotify { get; set; }
+
 		public bool SelfAssignment { get; set; }
 
 		public int? SelfAssignmentMargin { get; set; }
+
+		public string TargetNameTemplate { get; set; }
+
+		public string TargetDetailsTemplate { get; set; }
 	}
 }

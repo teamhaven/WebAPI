@@ -61,6 +61,8 @@ namespace TeamHaven.WebApi.Models
 		/// Flag indicating whether this attribute must have a value.
 		/// </summary>
 		public bool Required { get; set; }
+
+		public bool VisibleToCollectors { get; set; }
 	}
 
 	public enum AttributeType
@@ -78,6 +80,11 @@ namespace TeamHaven.WebApi.Models
 		/// <summary>
 		/// Value must be an email address
 		/// </summary>
-		Email = 3
+		Email = 3,
+
+		/// <summary>
+		/// Value must be the GUID of a picture
+		/// </summary>
+		Picture = 4
 	}
 }

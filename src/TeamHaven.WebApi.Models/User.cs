@@ -94,5 +94,11 @@ namespace TeamHaven.WebApi.Models
 		/// The Attribute Locks imposed on this User.
 		/// </summary>
 		public string AttributeLocks { get; set; }
+
+		/// <summary>
+		/// The maximum number of hours per day the user can work.
+		/// If null then the Account's setting should be applied.
+		/// </summary>
+		public double? HoursPerDay { get; set; }
 	}
 }

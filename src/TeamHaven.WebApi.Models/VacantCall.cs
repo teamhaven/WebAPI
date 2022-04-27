@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TeamHaven.WebApi.Models
 {
@@ -9,5 +10,10 @@ namespace TeamHaven.WebApi.Models
 		public DateTime LatestDate { get; set; }
 		public bool SelfAssigned { get; set; }
 		public double? EstimatedPay { get; set; }
+		public Dictionary<string, string> Attributes { get; set; }
+
+		public bool FixedAppointment { get; set; }
+		public DateTime? PlannedStart { get; set; }
+		public int? PlannedDuration { get; set; }
 	}
 }

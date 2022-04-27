@@ -26,6 +26,11 @@ namespace TeamHaven.WebApi.Models
 		public bool? DesignRoles { get; set; }
 
 		/// <summary>
+		/// If TRUE then Notifications are enabled.
+		/// </summary>
+		public bool? Notifications { get; set; }
+
+		/// <summary>
 		/// If TRUE then TeamHaven White Label is enabled.
 		/// </summary>
 		public bool? WhiteLabel { get; set; }
@@ -41,5 +46,11 @@ namespace TeamHaven.WebApi.Models
 		/// must be specified when a user is created.
 		/// </summary>
 		public string UserDisplayNameTemplate { get; set; }
+
+		/// <summary>
+		/// The maximum number of hours per day users can be assigned to,
+		/// unless overridden by the User's own setting.
+		/// </summary>
+		public double? HoursPerDay { get; set; }
 	}
 }

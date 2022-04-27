@@ -11,11 +11,6 @@ namespace TeamHaven.WebApi.Models
 		public int QuestionnaireID { get; set; }
 
 		/// <summary>
-		/// The Questionnaire's caption.
-		/// </summary>
-		public string Caption { get; set; }
-
-		/// <summary>
 		/// An ordered list of the Forms in the Questionnaire.
 		/// </summary>
 		public List<QuestionnaireForm> Forms { get; set; }
