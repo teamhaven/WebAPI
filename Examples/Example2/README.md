@@ -2,7 +2,7 @@ This example shows how to receive and process [Integration Events](https://githu
 
 To get started:
 
-1. Open `Examples.sln` (located in the parent folder) into Visual Studio 2012 or 2013. Please note that the .NET Framework 4.5 is required.  
+1. Open `Examples.sln` (located in the parent folder) into Visual Studio. Please note that the .NET Framework 4.8 is required.  
 2. In Visual Studio, right-click on "Example2" and select "Set as StartUp Project".  
 3. Open `Program.cs` and change the `Username`, `Password` and `Account` constants to match your TeamHaven login credentials.  
 4. Build the solution. During the first build, Visual Studio will download several NuGet packages.  
