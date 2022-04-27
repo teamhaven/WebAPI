@@ -33,7 +33,7 @@ namespace TeamHaven.WebApi.Client.Tests
 			stopwatch.Stop();
 
 			// Assert
-			A.CallTo(() => httpClient.GetAsync("/api/server")).MustHaveHappened(Repeated.Exactly.Times(3));
+			A.CallTo(() => httpClient.GetAsync("/api/server")).MustHaveHappened(3, Times.Exactly);
 			Assert.AreEqual(10, (int)stopwatch.Elapsed.TotalSeconds);
 		}
 
